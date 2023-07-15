@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-
+using UnityEngine.Audio;
 
 public class Coin : MonoBehaviour
 {
@@ -15,10 +14,11 @@ public class Coin : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private float cantidadPunto;
     [SerializeField] private Puntaje puntaje;
+    public AudioSource moneda;
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,8 +30,8 @@ public class Coin : MonoBehaviour
             if (mc)
             {
                 mc.AddCoin(1);
-                Destroy(gameObject);
-
+                Destroy(gameObject, 0.3f);
+                moneda.Play();
             }
         }
     }

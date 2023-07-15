@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class MeincharacAttack : MonoBehaviour
 {
     public bool atacando = false;
@@ -12,6 +12,7 @@ public class MeincharacAttack : MonoBehaviour
     [SerializeField] private float DañoAttack;
 
     private Animator m_animator;
+    public AudioSource ataque;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class MeincharacAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-
+            ataque.Play();
             Golpe();
         }
     }

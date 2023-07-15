@@ -15,7 +15,7 @@ public class Pinchis : MonoBehaviour
             TiempoSiguienteDaño -= Time.deltaTime;
             if(TiempoSiguienteDaño <= 0)
             {
-               other.GetComponent<Meincharacte>().TomarDaño(50);
+               other.GetComponent<Meincharacte>().TomarDaño(20);
                 TiempoSiguienteDaño = TiempodelDaño;
             }
             

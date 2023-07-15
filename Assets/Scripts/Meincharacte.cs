@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Audio;
 
 public class Meincharacte : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class Meincharacte : MonoBehaviour
     public string characterName;
     public int coin = 0;
     private float m_currentTime;
-    
-    
+    public AudioSource recibirdañojugador;
+    public AudioSource deadCharcter;
+
+
 
     [SerializeField] int vida;
     [SerializeField] int maximaVida;
@@ -42,14 +45,22 @@ public class Meincharacte : MonoBehaviour
         barraVida.CambiarVidaActual(vida);
 
         animator.SetTrigger("RecibirDaño");
+        recibirdañojugador.Play();
 
         if (vida <= 0)
-        {            
-            dead = true;
-            animator.SetBool("DeadChar", dead);
+        {
+            MuerteChar();
             MuertePlayer?.Invoke(this, EventArgs.Empty);
-
+            deadCharcter.Play();
         }
+    }
+
+    private void MuerteChar()
+    {
+        animator.SetBool("DeadChar", true);
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
+        transform.GetComponent<Movimiento>().EliminarRigibody();
     }
     
     public void Curar(float curacion)
@@ -65,11 +76,7 @@ public class Meincharacte : MonoBehaviour
         }
         barraVida.CambiarVidaActual(vida);
     }
-    void Update()
-    {
-       
-
-    }
+    
 
     public void AddCoin(int p_amount)
     {
