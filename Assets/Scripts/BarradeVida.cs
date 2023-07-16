@@ -24,6 +24,7 @@ public class BarradeVida : MonoBehaviour
 
     public void IniciarBarraVida(float cantidadVida)
     {
+        slider = GetComponent<Slider>();
         CambiarVidaMaxima(cantidadVida);
         CambiarVidaActual(cantidadVida);
     }
