@@ -30,7 +30,7 @@ public class Coin : MonoBehaviour
             if (mc)
             {
                 mc.AddCoin(1);
-                Destroy(gameObject, 0.3f);
+                Destroy(gameObject, 0.2f);
                 moneda.Play();
             }
         }

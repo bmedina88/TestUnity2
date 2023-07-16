@@ -11,7 +11,9 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject botonPausa;
 
     [SerializeField] private GameObject menuPausa;
-   public void Pausa()
+
+    //public GameObject botonPuerta;
+    public void Pausa()
     {
         Time.timeScale = 0f;
         botonPausa.SetActive(false);

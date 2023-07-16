@@ -39,7 +39,7 @@ public class Golbin : MonoBehaviour, Enemigos<float>
 
     private void Update()
     {
-       
+  
         Golpe();
     }
 
