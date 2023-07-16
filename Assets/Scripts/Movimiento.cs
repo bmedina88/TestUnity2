@@ -18,14 +18,10 @@ public class Movimiento : MonoBehaviour
     private AudioSource jump;
 
 
-    public void EliminarRigibody()
-    {
-        Destroy(GetComponent<Rigidbody2D>());
-    }
+
 
     void Start()
     {
-        Debug.Log("Movimineto");
 
         Rigi2D = GetComponent<Rigidbody2D>();
 
@@ -93,4 +89,8 @@ public class Movimiento : MonoBehaviour
     }
 
 
+    public void EliminarRigibody()
+    {
+        Destroy(GetComponent<Rigidbody2D>());
+    }
 }

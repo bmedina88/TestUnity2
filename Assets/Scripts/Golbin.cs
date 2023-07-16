@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class Golbin : MonoBehaviour
+public class Golbin : MonoBehaviour, Enemigos<float>
 {
     BoxCollider2D BoxCollider;
 
@@ -87,4 +87,6 @@ public class Golbin : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(ControladorAtakeGoblin.position, radioAttackGoblin);
     }
+
+ 
 }

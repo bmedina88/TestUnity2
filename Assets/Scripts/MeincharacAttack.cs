@@ -38,7 +38,7 @@ public class MeincharacAttack : MonoBehaviour
             if (collider.CompareTag("Enemigo"))
             {
                 
-                collider.transform.GetComponent<Golbin>().TomarDaño(DañoAttack);
+                collider.GetComponent<Enemigos<float>>().TomarDaño(DañoAttack);
                 
             }
         }
