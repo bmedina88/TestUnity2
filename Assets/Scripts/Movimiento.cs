@@ -18,6 +18,7 @@ public class Movimiento : MonoBehaviour
     private AudioSource jump;
 
 
+
     public void EliminarRigibody()
     {
         Destroy(GetComponent<Rigidbody2D>());
@@ -36,6 +37,8 @@ public class Movimiento : MonoBehaviour
 
     void Update()
     {
+       
+
         if (!m_animator.GetBool("DeadChar"))
         {
             float l_horizontal = Input.GetAxis("Horizontal");
@@ -67,10 +70,12 @@ public class Movimiento : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
-        
-
-
     }
+
+
+
+
+
 
     public void Mover(float movent)
     {

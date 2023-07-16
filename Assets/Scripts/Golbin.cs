@@ -39,7 +39,7 @@ public class Golbin : MonoBehaviour
 
     private void Update()
     {
-       
+  
         Golpe();
     }
 

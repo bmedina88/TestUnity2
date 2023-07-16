@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemigo
+  - key
+  - puerta
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Bullet
   - Coin
   - paredes
-  - 
+  - menu
   - 
   - 
   - 
@@ -50,4 +52,7 @@ TagManager:
     locked: 0
   - name: gamplay
     uniqueID: 3378131575
+    locked: 0
+  - name: Menu
+    uniqueID: 3192542485
     locked: 0
