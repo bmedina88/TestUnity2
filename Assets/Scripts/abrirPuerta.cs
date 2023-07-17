@@ -10,4 +10,9 @@ public class abrirPuerta : MonoBehaviour
     {
         llave = 0;       
     }
+
+    public int getLlave()
+    {
+        return llave;
+    }
 }

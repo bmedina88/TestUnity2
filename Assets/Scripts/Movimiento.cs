@@ -26,7 +26,6 @@ public class Movimiento : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Movimineto");
 
         Rigi2D = GetComponent<Rigidbody2D>();
 

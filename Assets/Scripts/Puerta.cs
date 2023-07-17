@@ -60,7 +60,7 @@ public class Puerta : MonoBehaviour
     public void btonPuerta()
     {
         onPuerta.SetTrigger("abrir");
-        GameObject.Find("puerta (1)").GetComponent<BoxCollider2D>().enabled = false;
+        GameObject.Find("puertaCerrada").GetComponent<BoxCollider2D>().enabled = false;
     }
     
 }
