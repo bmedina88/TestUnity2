@@ -1,43 +1,48 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-//using System;
-//using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+using UnityEngine.SceneManagement;
 
-//public class Menuwin : MonoBehaviour
-//{
-//    [SerializeField] private GameObject menuWin;
-
-    
-//    private Meincharacte winer;
-
-//    private void Start()
-//    {
-//        winer = GameObject.FindGameObjectWithTag("Player").GetComponent<Meincharacte>();
-//        winer.MuertePlayer += ActivarMenu;
-//    }
-    
-//    private void ActivarMenu(object sender, EventArgs e)
-//    {
-//        winer.SetActive(true);
+public class Menuwin : MonoBehaviour
+{
+    [SerializeField] private GameObject menuWin;
 
 
-//    }
-//    public void Reiniciar()
-//    {
-//        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-//    }
+    private Meincharacte winer;
 
-//    public void MenuInicial(string win)
-//    {
-//        SceneManager.LoadScene(win);
-//    }
-//    public void salir()
-//    {
-//        //UnityEditor.EditorApplication.isPlaying = false;
-//        Application.Quit();
-//    }
+    private void Start()
+    {
+        winer = GameObject.FindGameObjectWithTag("Player").GetComponent<Meincharacte>();
+        winer.MuertePlayer += ActivarMenu;
+    }
+
+    public void ActivarMenu(object sender, EventArgs e)
+    {
+        menuWin.SetActive(true);
+        Time.timeScale = 0f;
+
+    }
+    public void ActivarMenu()
+    {
+        menuWin.SetActive(true);
+        Time.timeScale = 0f;
+
+    }
+    public void Reiniciar()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+    }
+
+    public void salir()
+    {
+        //UnityEditor.EditorApplication.isPlaying = false;
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+
+    }
 
 
 
-//}
+}
