@@ -101,6 +101,6 @@ public class boss1 : MonoBehaviour, Enemigos<float>
     private void Muerte()
     {
         Destroy(gameObject);
-        Destroy(GameObject.Find("BarraDeVidaBoss"));
+        Destroy(GameObject.Find("BarradeVidaBoss"));
     }
 }
