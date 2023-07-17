@@ -6,25 +6,20 @@ using UnityEngine.Audio;
 
 public class Meincharacte : MonoBehaviour
 {
-    private bool isGrunded;
-    public float currentSpeed;    
-    public int damage;
-    public float jumHeigth;
-    public string characterName;
     public int coin = 0;
-    private float m_currentTime;
+
     public AudioSource recibirdañojugador;
     public AudioSource deadCharcter;
+    public event EventHandler MuertePlayer;
 
+    private Movimiento movimiento;
+    [SerializeField] private float tiempoFueradeControl;
 
-
-    [SerializeField] int vida;
+    [SerializeField] float vida;
     [SerializeField] int maximaVida;
-    private Movimiento Movimiento;
-    [SerializeField] private float FueradeControl;
     [SerializeField] private BarradeVida barraVida;
 
-    public event EventHandler MuertePlayer;
+
     private Animator animator;
 
     
@@ -34,9 +29,9 @@ public class Meincharacte : MonoBehaviour
         barraVida.IniciarBarraVida(vida);
         AddCoin(0);
         animator = GetComponent<Animator>();
+        movimiento = transform.GetComponent<Movimiento>();
     }
 
-    bool dead = false;
 
     public void TomarDaño(int daño)
     {
@@ -46,6 +41,26 @@ public class Meincharacte : MonoBehaviour
 
         animator.SetTrigger("RecibirDaño");
         recibirdañojugador.Play();
+        StartCoroutine(PerderControl());
+        movimiento.Retroceso(new Vector2(-1,0) );
+
+        if (vida <= 0)
+        {
+            MuerteChar();
+            MuertePlayer?.Invoke(this, EventArgs.Empty);
+            deadCharcter.Play();
+        }
+    }
+    public void TomarDaño(int daño, Vector2 posicion)
+    {
+        vida -= daño;
+
+        barraVida.CambiarVidaActual(vida);
+
+        animator.SetTrigger("RecibirDaño");
+        recibirdañojugador.Play();
+        StartCoroutine(PerderControl());
+
 
         if (vida <= 0)
         {
@@ -60,7 +75,7 @@ public class Meincharacte : MonoBehaviour
         animator.SetBool("DeadChar", true);
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
-        transform.GetComponent<Movimiento>().EliminarRigibody();
+        movimiento.EliminarRigibody();
     }
     
     public void Curar(float curacion)
@@ -71,7 +86,7 @@ public class Meincharacte : MonoBehaviour
         }
         else
         {
-            vida += (int)curacion;
+            vida += curacion;
 
         }
         barraVida.CambiarVidaActual(vida);
@@ -81,6 +96,13 @@ public class Meincharacte : MonoBehaviour
     public void AddCoin(int p_amount)
     {
         coin += p_amount;
+    }
+    
+    private IEnumerator PerderControl()
+    {
+        movimiento.SepuedeMover = false;
+        yield return new WaitForSeconds(tiempoFueradeControl);
+        movimiento.SepuedeMover = true;
     }
 }
 

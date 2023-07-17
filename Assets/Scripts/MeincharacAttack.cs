@@ -11,6 +11,10 @@ public class MeincharacAttack : MonoBehaviour
 
     [SerializeField] private float DañoAttack;
 
+    [SerializeField] private float cooldownFijo;
+    [SerializeField] private float cooldownActual;
+
+
     private Animator m_animator;
     public AudioSource ataque;
 
@@ -20,10 +24,15 @@ public class MeincharacAttack : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (cooldownActual > 0)
+        {
+            cooldownActual -= Time.deltaTime;
+        }
+        if (Input.GetKeyDown(KeyCode.R) && cooldownActual<=0 && GetComponent<Movimiento>().getSePuedeMover() )
         {
             ataque.Play();
             Golpe();
+            cooldownActual = cooldownFijo;
         }
     }
     private void Golpe()

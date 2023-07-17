@@ -339,7 +339,7 @@ MonoBehaviour:
   atacando: 0
   ControladorAtake: {fileID: 3110935449050432678}
   radioAttack: 1
-  "Da\xF1oAttack": 20
+  "Da\xF1oAttack": 25
   ataque: {fileID: 3110935448152314849}
 --- !u!82 &3110935448152314862
 AudioSource:
