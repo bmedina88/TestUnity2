@@ -14,9 +14,13 @@ public class Puerta : MonoBehaviour
 
     private void Start()
     {
-        conllave.SetActive(false);
-        sinllave.SetActive(false);
-        botonPuerta.SetActive(false);
+        if (botonPuerta!= null)
+        {
+            conllave.SetActive(false);
+            sinllave.SetActive(false);
+            botonPuerta.SetActive(false);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,30 +35,39 @@ public class Puerta : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag.Equals("puerta") && abrirPuerta.llave == 0)
+        if (botonPuerta != null)
         {
-            sinllave.SetActive(true);
+            if (collision.tag.Equals("puerta") && abrirPuerta.llave == 0)
+            {
+                sinllave.SetActive(true);
+            }
+
+            if (collision.tag.Equals("puerta") && abrirPuerta.llave == 1)
+            {
+                conllave.SetActive(true);
+                botonPuerta.SetActive(true);
+            }
         }
 
-        if (collision.tag.Equals("puerta") && abrirPuerta.llave == 1)
-        {
-            conllave.SetActive(true);
-            botonPuerta.SetActive(true);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag.Equals("puerta") && abrirPuerta.llave == 0)
+
+        if (botonPuerta != null)
         {
-            sinllave.SetActive(false);
+            if (collision.tag.Equals("puerta") && abrirPuerta.llave == 0)
+            {
+                sinllave.SetActive(false);
+            }
+
+            if (collision.tag.Equals("puerta") && abrirPuerta.llave == 1)
+            {
+                conllave.SetActive(false);
+                botonPuerta.SetActive(false);
+            }
         }
 
-        if (collision.tag.Equals("puerta") && abrirPuerta.llave == 1)
-        {
-            conllave.SetActive(false);
-            botonPuerta.SetActive(false);
-        }
     }
 
     public void btonPuerta()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PuertaSiguienteNivel : MonoBehaviour
 {
@@ -8,9 +9,9 @@ public class PuertaSiguienteNivel : MonoBehaviour
     {
         if (otro.CompareTag("Player"))
         {
-            if (GameObject.Find("llave").GetComponent<abrirPuerta>().getLlave()==1)
+            if (GameObject.Find("llave").GetComponent<abrirPuerta>().getLlave()==1 && GameObject.Find("puertaCerrada").GetComponent<BoxCollider2D>().enabled == false)
             {
-                Debug.Log("pasooo");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             }
             
         }
