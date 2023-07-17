@@ -6,23 +6,24 @@ using Unity.VisualScripting;
 
 public class Puntaje : MonoBehaviour
 {
-    private float puntos;
-
+    [SerializeField] private float puntos;
     private TextMeshProUGUI textMesh;
 
     private void Start()
     {
+        puntos = GameObject.Find("ControladorPuntos").GetComponent<ControladorPuntos>().getPuntos();
         textMesh = GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
     {
-        //puntos += Time.deltaTime;
         textMesh.text = puntos.ToString("0");
+        
             
     }
      public void SumarPuntos(float puntosTotal)
     {
         puntos += puntosTotal;
+        GameObject.Find("ControladorPuntos").GetComponent<ControladorPuntos>().setearPuntos(puntos);
     }
 }

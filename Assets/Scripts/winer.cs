@@ -17,7 +17,7 @@ public class winer : MonoBehaviour
             Meincharacte mc = other.gameObject.GetComponent<Meincharacte>();
             if (mc)
             {
-                Debug.Log("segundo if");
+
                 WinPlayer?.Invoke(this, EventArgs.Empty);
                 GameObject.Find("Canvas").GetComponent<Menuwin>().ActivarMenu();
 
