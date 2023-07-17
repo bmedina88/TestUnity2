@@ -39,8 +39,8 @@ public class Golbin : MonoBehaviour, Enemigos<float>
 
     private void Update()
     {
-  
         Golpe();
+        
     }
 
     public void TomarDaño(float daño)
@@ -67,12 +67,27 @@ public class Golbin : MonoBehaviour, Enemigos<float>
             if (collider.CompareTag("Player"))
             {
                 animator.SetTrigger("ataqueGoblin");
-                collider.transform.GetComponent<Meincharacte>().TomarDaño((int) DañoAttackGoblin);
+                
 
             }
         }
     }
     
+    public void Enviardaño()
+    {
+        Collider2D[] objeto = Physics2D.OverlapCircleAll(ControladorAtakeGoblin.position, radioAttackGoblin);
+
+        foreach (Collider2D collider in objeto)
+        {
+            if (collider.CompareTag("Player"))
+            {
+                
+                collider.transform.GetComponent<Meincharacte>().TomarDaño((int)DañoAttackGoblin);
+
+            }
+        }
+
+    }
     private void Muerte()
     {
 

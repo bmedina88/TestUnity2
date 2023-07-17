@@ -16,6 +16,7 @@ public class MenuGameOver : MonoBehaviour
         combateCharacter.MuertePlayer += ActivarMenu;
     }
 
+
     private void ActivarMenu(object sender, EventArgs e)
     {
         menuGameOver.SetActive(true);

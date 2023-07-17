@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class Meincharacte : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Meincharacte : MonoBehaviour
     public AudioSource recibirdañojugador;
     public AudioSource deadCharcter;
     public event EventHandler MuertePlayer;
+    //public event EventHandler WinPlayer;
+    
 
     private Movimiento movimiento;
     [SerializeField] private float tiempoFueradeControl;
@@ -51,6 +54,7 @@ public class Meincharacte : MonoBehaviour
             deadCharcter.Play();
         }
     }
+
     public void TomarDaño(int daño, Vector2 posicion)
     {
         vida -= daño;
@@ -69,6 +73,16 @@ public class Meincharacte : MonoBehaviour
             deadCharcter.Play();
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.gameObject.layer == 6)
+    //    {
+    //        WinPlayer?.Invoke(this, EventArgs.Empty);
+    //    }
+    //}
+
+    
 
     private void MuerteChar()
     {
