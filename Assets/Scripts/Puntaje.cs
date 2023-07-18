@@ -31,6 +31,10 @@ public class Puntaje : MonoBehaviour
      public void SumarPuntos(float puntosTotal)
     {
         puntos += puntosTotal;
-        GameObject.Find("ControladorPuntos").GetComponent<ControladorPuntos>().setearPuntos(puntos);
+        if (GameObject.Find("ControladorPuntos") != null)
+        {
+            GameObject.Find("ControladorPuntos").GetComponent<ControladorPuntos>().setearPuntos(puntos);
+        }
+        
     }
 }

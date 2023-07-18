@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\Scripts\Pinchis.cs" />
-    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\MenuIncial.cs" />
     <Compile Include="Assets\Scripts\boss\boss_caminarBehaviour.cs" />
     <Compile Include="Assets\Scripts\MeincharacAttack.cs" />

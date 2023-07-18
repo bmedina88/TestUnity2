@@ -24,6 +24,7 @@ public class MenuGameOver : MonoBehaviour
     public void Reiniciar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameObject.Find("ControladorPuntos").GetComponent<ControladorPuntos>().setearPuntos(0);
     }
 
     public void MenuInicial(string nombre)

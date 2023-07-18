@@ -29,6 +29,7 @@ public class MenuPausa : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameObject.Find("ControladorPuntos").GetComponent<ControladorPuntos>().setearPuntos(0);
     }
 
     public void Cerrar()
